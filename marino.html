@@ -7,11 +7,9 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background: #0a0a0a;
-      color: #fff;
+      background: #0a0a0a; color: #fff;
       font-family: 'Segoe UI', system-ui, sans-serif;
-      min-height: 100vh;
-      padding: 32px 16px;
+      min-height: 100vh; padding: 32px 16px;
     }
     header { text-align: center; margin-bottom: 32px; }
     header h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 6px; }
@@ -67,14 +65,6 @@
   <div class="updated" id="updated"></div>
 
   <script>
-    const BASE = 'https://goboardapi.azurewebsites.net/api/FacilityCount/GetCountsByAccountAPIKey?AccountAPIKey=1a0b4030-78cb-4f32-90e5-3a041ac6b640';
-    const PROXIES = [
-      BASE,
-      'https://api.allorigins.win/raw?url=' + encodeURIComponent(BASE),
-      'https://corsproxy.io/?' + encodeURIComponent(BASE),
-      'https://proxy.cors.sh/' + BASE,
-    ];
-
     function getColor(pct) {
       if (pct < 40) return '#22c55e';
       if (pct < 70) return '#f59e0b';
@@ -107,24 +97,22 @@
       const content = document.getElementById('content');
       content.className = 'loading';
       content.innerHTML = 'Loading...';
-      for (const url of PROXIES) {
-        try {
-          const res = await fetch(url);
-          if (!res.ok) continue;
-          const data = await res.json();
-          if (!Array.isArray(data) || data.length === 0) continue;
-          content.className = 'grid';
-          content.innerHTML = data.map(makeCard).join('');
-          document.getElementById('updated').textContent = 'Last updated: ' + new Date().toLocaleTimeString();
-          return;
-        } catch (e) { continue; }
+      try {
+        const res = await fetch('data.json?t=' + Date.now());
+        if (!res.ok) throw new Error('No data yet');
+        const data = await res.json();
+        if (!Array.isArray(data) || data.length === 0) throw new Error('Empty');
+        content.className = 'grid';
+        content.innerHTML = data.map(makeCard).join('');
+        document.getElementById('updated').textContent = 'Last updated: ' + new Date().toLocaleTimeString();
+      } catch (e) {
+        content.className = 'error';
+        content.innerHTML = '⚠️ Data not available yet — the GitHub Action may still be running for the first time. Try refreshing in a few minutes.';
       }
-      content.className = 'error';
-      content.innerHTML = '⚠️ Could not load data. Try refreshing.';
     }
 
     loadData();
-    setInterval(loadData, 60000);
+    setInterval(loadData, 300000); // refresh every 5 min to match the action
   </script>
 </body>
 </html>
