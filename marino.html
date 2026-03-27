@@ -6,7 +6,6 @@
   <title>Marino Live Occupancy</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
       background: #0a0a0a;
       color: #fff;
@@ -14,113 +13,48 @@
       min-height: 100vh;
       padding: 32px 16px;
     }
-
-    header {
-      text-align: center;
-      margin-bottom: 32px;
-    }
-
-    header h1 {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-
+    header { text-align: center; margin-bottom: 32px; }
+    header h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 6px; }
     .live-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.75rem;
-      color: #aaa;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.75rem; color: #aaa; text-transform: uppercase; letter-spacing: 0.1em;
     }
-
     .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #22c55e;
+      width: 8px; height: 8px; border-radius: 50%; background: #22c55e;
       animation: pulse 2s infinite;
     }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
-    }
-
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 16px;
-      max-width: 900px;
-      margin: 0 auto;
+      gap: 16px; max-width: 900px; margin: 0 auto;
     }
-
     .card {
-      background: #161616;
-      border: 1px solid #222;
-      border-radius: 16px;
-      padding: 20px;
-      text-align: center;
-      transition: border-color 0.2s;
+      background: #161616; border: 1px solid #222; border-radius: 16px;
+      padding: 20px; text-align: center; transition: border-color 0.2s;
     }
-
     .card:hover { border-color: #444; }
-
-    .card-name {
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 12px;
-      color: #ccc;
-    }
-
-    .ring-wrap {
-      position: relative;
-      width: 90px;
-      height: 90px;
-      margin: 0 auto 12px;
-    }
-
+    .card-name { font-size: 0.85rem; font-weight: 600; margin-bottom: 12px; color: #ccc; }
+    .ring-wrap { position: relative; width: 90px; height: 90px; margin: 0 auto 12px; }
     .ring-wrap svg { transform: rotate(-90deg); }
     .ring-bg { fill: none; stroke: #2a2a2a; stroke-width: 8; }
     .ring-fill { fill: none; stroke-width: 8; stroke-linecap: round; transition: stroke-dashoffset 0.6s ease; }
-
     .ring-label {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 1.1rem;
-      font-weight: 700;
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -50%); font-size: 1.1rem; font-weight: 700;
     }
-
     .count { font-size: 0.8rem; color: #666; margin-bottom: 4px; }
     .status-open { color: #22c55e; font-size: 0.72rem; font-weight: 600; }
     .status-closed { color: #ef4444; font-size: 0.72rem; font-weight: 600; }
-
     .error { text-align: center; color: #ef4444; margin-top: 60px; }
     .loading { text-align: center; color: #555; margin-top: 60px; font-size: 0.9rem; }
-
     .refresh-btn {
-      display: block;
-      margin: 24px auto 0;
-      padding: 10px 24px;
-      background: #1a1a1a;
-      border: 1px solid #333;
-      border-radius: 8px;
-      color: #aaa;
-      font-size: 0.8rem;
-      cursor: pointer;
-      transition: border-color 0.2s, color 0.2s;
+      display: block; margin: 24px auto 0; padding: 10px 24px;
+      background: #1a1a1a; border: 1px solid #333; border-radius: 8px;
+      color: #aaa; font-size: 0.8rem; cursor: pointer; transition: border-color 0.2s, color 0.2s;
     }
     .refresh-btn:hover { border-color: #666; color: #fff; }
-
-    .updated {
-      text-align: center;
-      font-size: 0.72rem;
-      color: #444;
-      margin-top: 12px;
-    }
+    .updated { text-align: center; font-size: 0.72rem; color: #444; margin-top: 12px; }
   </style>
 </head>
 <body>
@@ -128,14 +62,18 @@
     <h1>🏋️ Marino Fitness Center</h1>
     <div class="live-badge"><span class="dot"></span> Live Occupancy · Northeastern University</div>
   </header>
-
   <div id="content" class="loading">Loading...</div>
   <button class="refresh-btn" onclick="loadData()">↻ Refresh</button>
   <div class="updated" id="updated"></div>
 
   <script>
-    const API = 'https://goboardapi.azurewebsites.net/api/FacilityCount/GetCountsByAccountAPIKey?AccountAPIKey=1a0b4030-78cb-4f32-90e5-3a041ac6b640';
-    const PROXY = 'https://corsproxy.io/?' + encodeURIComponent(API);
+    const BASE = 'https://goboardapi.azurewebsites.net/api/FacilityCount/GetCountsByAccountAPIKey?AccountAPIKey=1a0b4030-78cb-4f32-90e5-3a041ac6b640';
+    const PROXIES = [
+      BASE,
+      'https://api.allorigins.win/raw?url=' + encodeURIComponent(BASE),
+      'https://corsproxy.io/?' + encodeURIComponent(BASE),
+      'https://proxy.cors.sh/' + BASE,
+    ];
 
     function getColor(pct) {
       if (pct < 40) return '#22c55e';
@@ -149,33 +87,27 @@
       const color = getColor(pct);
       const circumference = 2 * Math.PI * 36;
       const offset = loc.TotalCapacity ? circumference - (pct / 100) * circumference : circumference;
-
       return `
         <div class="card">
           <div class="card-name">${loc.LocationName}</div>
           <div class="ring-wrap">
             <svg viewBox="0 0 80 80" width="90" height="90">
               <circle class="ring-bg" cx="40" cy="40" r="36"/>
-              <circle class="ring-fill"
-                cx="40" cy="40" r="36"
-                stroke="${color}"
-                stroke-dasharray="${circumference}"
-                stroke-dashoffset="${offset}"/>
+              <circle class="ring-fill" cx="40" cy="40" r="36"
+                stroke="${color}" stroke-dasharray="${circumference}" stroke-dashoffset="${offset}"/>
             </svg>
             <div class="ring-label" style="color:${color}">${displayPct}</div>
           </div>
           <div class="count">Count: ${loc.CurrentCount}</div>
           <div class="${loc.IsOpen ? 'status-open' : 'status-closed'}">${loc.IsOpen ? 'Open' : 'Closed'}</div>
-        </div>
-      `;
+        </div>`;
     }
 
     async function loadData() {
       const content = document.getElementById('content');
       content.className = 'loading';
       content.innerHTML = 'Loading...';
-
-      for (const url of [API, PROXY]) {
+      for (const url of PROXIES) {
         try {
           const res = await fetch(url);
           if (!res.ok) continue;
@@ -185,11 +117,8 @@
           content.innerHTML = data.map(makeCard).join('');
           document.getElementById('updated').textContent = 'Last updated: ' + new Date().toLocaleTimeString();
           return;
-        } catch (e) {
-          continue;
-        }
+        } catch (e) { continue; }
       }
-
       content.className = 'error';
       content.innerHTML = '⚠️ Could not load data. Try refreshing.';
     }
