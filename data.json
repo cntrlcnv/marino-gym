@@ -1,0 +1,1 @@
+{"Message":"No HTTP resource was found that matches the request URI 'https://goboardapi.azurewebsites.net/api/FacilityCount/GetCountsByAccountAPIKey?AccountAPIKey=1a0b4030-78cb-4f32-90e5-3a041ac6b640'.","MessageDetail":"No action was found on the controller 'FacilityCount' that matches the request."}
