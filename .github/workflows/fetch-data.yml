@@ -19,9 +19,13 @@ jobs:
 
       - name: Fetch occupancy data
         run: |
-          curl -s "https://goboardapi.azurewebsites.net/api/FacilityCount/GetCountsByAccountAPIKey?AccountAPIKey=1a0b4030-78cb-4f32-90e5-3a041ac6b640" \
+          curl -s \
             -H "Accept: application/json" \
+            -H "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" \
+            -H "Referer: https://www.connect2mycloud.com/" \
+            "https://goboardapi.azurewebsites.net/api/FacilityCount/GetCountsByAccountAPIKey?AccountAPIKey=1a0b4030-78cb-4f32-90e5-3a041ac6b640" \
             -o data.json
+          cat data.json
 
       - name: Commit and push data
         run: |
