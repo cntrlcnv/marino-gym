@@ -72,11 +72,14 @@
     }
 
     function makeCard(loc) {
-      const pct = loc.TotalCapacity ? Math.min(loc.CurrentCount / loc.TotalCapacity * 100, 100) : 0;
-      const displayPct = loc.TotalCapacity ? Math.round(pct) + '%' : 'N/A';
+      const count = loc.CountOfParticipants;
+      const capacity = loc.TotalCapacity;
+      const pct = capacity ? Math.min(count / capacity * 100, 100) : 0;
+      const displayPct = capacity ? Math.round(pct) + '%' : 'N/A';
       const color = getColor(pct);
       const circumference = 2 * Math.PI * 36;
-      const offset = loc.TotalCapacity ? circumference - (pct / 100) * circumference : circumference;
+      const offset = capacity ? circumference - (pct / 100) * circumference : circumference;
+      const isOpen = !loc.IsClosed;
       return `
         <div class="card">
           <div class="card-name">${loc.LocationName}</div>
@@ -88,8 +91,8 @@
             </svg>
             <div class="ring-label" style="color:${color}">${displayPct}</div>
           </div>
-          <div class="count">Count: ${loc.CurrentCount}</div>
-          <div class="${loc.IsOpen ? 'status-open' : 'status-closed'}">${loc.IsOpen ? 'Open' : 'Closed'}</div>
+          <div class="count">Count: ${count}</div>
+          <div class="${isOpen ? 'status-open' : 'status-closed'}">${isOpen ? 'Open' : 'Closed'}</div>
         </div>`;
     }
 
@@ -99,20 +102,30 @@
       content.innerHTML = 'Loading...';
       try {
         const res = await fetch('data.json?t=' + Date.now());
-        if (!res.ok) throw new Error('No data yet');
+        if (!res.ok) throw new Error('No data');
         const data = await res.json();
-        if (!Array.isArray(data) || data.length === 0) throw new Error('Empty');
+        if (!Array.isArray(data)) throw new Error('Invalid data');
+
+        // Filter to Marino (UREC) only
+        const marino = data.filter(loc => loc.FacilityId === 1068);
+        const locations = marino.length > 0 ? marino : data;
+
         content.className = 'grid';
-        content.innerHTML = data.map(makeCard).join('');
-        document.getElementById('updated').textContent = 'Last updated: ' + new Date().toLocaleTimeString();
+        content.innerHTML = locations.map(makeCard).join('');
+
+        const latest = locations.reduce((a, b) =>
+          new Date(a.LastUpdatedDateAndTime) > new Date(b.LastUpdatedDateAndTime) ? a : b
+        );
+        document.getElementById('updated').textContent =
+          'Data as of: ' + new Date(latest.LastUpdatedDateAndTime).toLocaleString();
       } catch (e) {
         content.className = 'error';
-        content.innerHTML = '⚠️ Data not available yet — the GitHub Action may still be running for the first time. Try refreshing in a few minutes.';
+        content.innerHTML = '⚠️ Could not load data. Try refreshing.';
       }
     }
 
     loadData();
-    setInterval(loadData, 300000); // refresh every 5 min to match the action
+    setInterval(loadData, 300000);
   </script>
 </body>
 </html>
