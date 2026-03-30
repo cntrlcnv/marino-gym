@@ -29,66 +29,51 @@ jobs:
         run: |
           node << 'EOF'
           const puppeteer = require('puppeteer');
-
+          const fs = require('fs');
           (async () => {
-            const browser = await puppeteer.launch({
-              args: ['--no-sandbox', '--disable-setuid-sandbox']
-            });
+            const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
             const page = await browser.newPage();
-
             await page.setUserAgent('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36');
-
-            await page.goto('https://www.connect2mycloud.com/Widgets/Data/locationCount?type=circle&key=2a2be0d8-df10-4a48-bedd-b3bc0cd628e7&loc_status=false', {
-              waitUntil: 'networkidle2',
-              timeout: 30000
-            });
-
-            await page.waitForFunction(() => {
-              const els = document.querySelectorAll('.col-md-3, .col-sm-6');
-              return Array.from(els).some(el => el.innerText.includes('Last Count'));
-            }, { timeout: 15000 });
-
-            const data = await page.evaluate(() => {
-              const locations = [];
-              document.querySelectorAll('.col-md-3, .col-sm-6').forEach(el => {
+            await page.goto('https://www.connect2mycloud.com/Widgets/Data/locationCount?type=circle&key=2a2be0d8-df10-4a48-bedd-b3bc0cd628e7&loc_status=false', { waitUntil: 'networkidle2', timeout: 30000 });
+            await page.waitForFunction(() => Array.from(document.querySelectorAll('.col-md-3,.col-sm-6')).some(el => el.innerText.includes('Last Count')), { timeout: 15000 });
+            const raw = await page.evaluate(() => {
+              const locs = [];
+              document.querySelectorAll('.col-md-3,.col-sm-6').forEach(el => {
                 const lines = el.innerText.trim().split('\n').map(s => s.trim()).filter(Boolean);
-                if (lines.length >= 3 && (lines[1] || '').match(/floor|center|court|studio|gym|pool|track|fitness|squash|lounge/i)) {
-                  const pct = parseInt(lines[0]);
-                  const name = lines[1];
-                  const isOpen = lines[2] && lines[2].toLowerCase().includes('open');
-                  const countMatch = el.innerText.match(/Last Count:\s*(\d+)/);
-                  // Grab the "Updated: MM/DD/YYYY HH:MM PM" timestamp from Connect2
-                  const updatedMatch = el.innerText.match(/Updated:\s*(\d+\/\d+\/\d+\s+\d+:\d+\s*[AP]M)/i);
-                  let sourceUpdatedAt = null;
-                  if (updatedMatch) {
-                    const parsed = new Date(updatedMatch[1]);
-                    if (!isNaN(parsed)) sourceUpdatedAt = parsed.toISOString();
-                  }
-                  locations.push({
-                    LocationName: name,
-                    CountOfParticipants: countMatch ? parseInt(countMatch[1]) : 0,
-                    PercetageCapacity: isNaN(pct) ? 0 : pct,
-                    IsClosed: !isOpen,
-                    FacilityId: name.toLowerCase().includes('squash') ? 999 : 1068,
-                    FacilityName: name.toLowerCase().includes('squash') ? 'SquashBusters' : 'UREC',
-                    LastUpdatedDateAndTime: sourceUpdatedAt,
-                    FetchedAt: new Date().toISOString()
+                if (lines.length >= 3 && (lines[1]||'').match(/floor|center|court|studio|gym|pool|track|fitness|squash|lounge/i)) {
+                  const m = el.innerText.match(/Updated:\s*(\d+)\/(\d+)\/(\d+)\s+(\d+):(\d+)\s*(AM|PM)/i);
+                  locs.push({
+                    name: lines[1], pct: parseInt(lines[0]),
+                    open: lines[2] && lines[2].toLowerCase().includes('open'),
+                    count: (el.innerText.match(/Last Count:\s*(\d+)/)||[])[1],
+                    squash: lines[1].toLowerCase().includes('squash'),
+                    mo: m?+m[1]:null, dy: m?+m[2]:null, yr: m?+m[3]:null,
+                    hr: m?+m[4]:null, mn: m?+m[5]:null, ap: m?m[6].toUpperCase():null
                   });
                 }
               });
-              return locations;
+              return locs;
             });
-
             await browser.close();
-
-            if (!data || data.length === 0) {
-              console.error('No data found');
-              process.exit(1);
-            }
-
-            const fs = require('fs');
-            fs.writeFileSync('data.json', JSON.stringify(data, null, 2));
-            console.log(`Success: ${data.length} locations fetched`);
+            if (!raw.length) { console.error('No data'); process.exit(1); }
+            const fetchedAt = new Date().toISOString();
+            const processed = raw.map(loc => {
+              let utcTime = null;
+              if (loc.mo !== null && loc.hr !== null) {
+                let hr24 = loc.hr;
+                if (loc.ap === 'PM' && hr24 !== 12) hr24 += 12;
+                if (loc.ap === 'AM' && hr24 === 12) hr24 = 0;
+                const offset = (loc.mo >= 3 && loc.mo <= 11) ? 4 : 5;
+                const utcHr = hr24 + offset;
+                const finalHr = utcHr >= 24 ? utcHr - 24 : utcHr;
+                const finalDy = utcHr >= 24 ? loc.dy + 1 : loc.dy;
+                utcTime = new Date(Date.UTC(loc.yr, loc.mo-1, finalDy, finalHr, loc.mn, 0)).toISOString();
+              }
+              console.log(loc.name + ': ' + loc.hr + ':' + String(loc.mn||0).padStart(2,'0') + ' ' + loc.ap + ' ET -> ' + utcTime);
+              return { LocationName: loc.name, CountOfParticipants: loc.count ? +loc.count : 0, PercetageCapacity: isNaN(loc.pct)?0:loc.pct, IsClosed: !loc.open, FacilityId: loc.squash?999:1068, FacilityName: loc.squash?'SquashBusters':'UREC', LastUpdatedDateAndTime: utcTime, FetchedAt: fetchedAt };
+            });
+            fs.writeFileSync('data.json', JSON.stringify(processed, null, 2));
+            console.log('Done: ' + processed.length + ' locations');
           })();
           EOF
 
