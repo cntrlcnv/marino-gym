@@ -1,13 +1,13 @@
 [
   {
     "LocationName": "SquashBusters - 4th Floor",
-    "CountOfParticipants": 24,
-    "PercetageCapacity": 40,
+    "CountOfParticipants": 21,
+    "PercetageCapacity": 35,
     "IsClosed": false,
     "FacilityId": 999,
     "FacilityName": "SquashBusters",
-    "LastUpdatedDateAndTime": "2026-03-30T14:09:00.000Z",
-    "FetchedAt": "2026-03-30T18:40:26.556Z"
+    "LastUpdatedDateAndTime": "2026-03-30T18:43:00.000Z",
+    "FetchedAt": "2026-03-30T18:50:05.127Z"
   },
   {
     "LocationName": "Marino Center - Studio A",
@@ -16,8 +16,8 @@
     "IsClosed": false,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-03-30T14:27:00.000Z",
-    "FetchedAt": "2026-03-30T18:40:26.556Z"
+    "LastUpdatedDateAndTime": "2026-03-30T18:27:00.000Z",
+    "FetchedAt": "2026-03-30T18:50:05.127Z"
   },
   {
     "LocationName": "Marino Center - Studio B",
@@ -26,8 +26,8 @@
     "IsClosed": false,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-03-30T14:27:00.000Z",
-    "FetchedAt": "2026-03-30T18:40:26.556Z"
+    "LastUpdatedDateAndTime": "2026-03-30T18:27:00.000Z",
+    "FetchedAt": "2026-03-30T18:50:05.127Z"
   },
   {
     "LocationName": "Marino Center- 2nd Floor",
@@ -36,8 +36,8 @@
     "IsClosed": false,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-03-30T14:27:00.000Z",
-    "FetchedAt": "2026-03-30T18:40:26.556Z"
+    "LastUpdatedDateAndTime": "2026-03-30T18:27:00.000Z",
+    "FetchedAt": "2026-03-30T18:50:05.127Z"
   },
   {
     "LocationName": "Marino Center - Gymnasium",
@@ -46,8 +46,8 @@
     "IsClosed": false,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-03-30T14:27:00.000Z",
-    "FetchedAt": "2026-03-30T18:40:26.556Z"
+    "LastUpdatedDateAndTime": "2026-03-30T18:27:00.000Z",
+    "FetchedAt": "2026-03-30T18:50:05.127Z"
   },
   {
     "LocationName": "Marino Center - 3rd Floor Weight Room",
@@ -56,8 +56,8 @@
     "IsClosed": false,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-03-30T14:12:00.000Z",
-    "FetchedAt": "2026-03-30T18:40:26.556Z"
+    "LastUpdatedDateAndTime": "2026-03-30T18:12:00.000Z",
+    "FetchedAt": "2026-03-30T18:50:05.127Z"
   },
   {
     "LocationName": "Marino Center - 3rd Floor Select & Cardio",
@@ -66,8 +66,8 @@
     "IsClosed": false,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-03-30T14:12:00.000Z",
-    "FetchedAt": "2026-03-30T18:40:26.556Z"
+    "LastUpdatedDateAndTime": "2026-03-30T18:12:00.000Z",
+    "FetchedAt": "2026-03-30T18:50:05.127Z"
   },
   {
     "LocationName": "Marino Center- 1st Floor Weight Room",
@@ -76,7 +76,7 @@
     "IsClosed": false,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-03-30T14:30:00.000Z",
-    "FetchedAt": "2026-03-30T18:40:26.556Z"
+    "LastUpdatedDateAndTime": "2026-03-30T18:30:00.000Z",
+    "FetchedAt": "2026-03-30T18:50:05.127Z"
   }
 ]
