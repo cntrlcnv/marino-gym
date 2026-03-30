@@ -43,7 +43,6 @@ jobs:
               timeout: 30000
             });
 
-            // Wait for data to load
             await page.waitForFunction(() => {
               const els = document.querySelectorAll('.col-md-3, .col-sm-6');
               return Array.from(els).some(el => el.innerText.includes('Last Count'));
@@ -57,15 +56,23 @@ jobs:
                   const pct = parseInt(lines[0]);
                   const name = lines[1];
                   const isOpen = lines[2] && lines[2].toLowerCase().includes('open');
-                  const m = el.innerText.match(/Last Count:\s*(\d+)/);
+                  const countMatch = el.innerText.match(/Last Count:\s*(\d+)/);
+                  // Grab the "Updated: MM/DD/YYYY HH:MM PM" timestamp from Connect2
+                  const updatedMatch = el.innerText.match(/Updated:\s*(\d+\/\d+\/\d+\s+\d+:\d+\s*[AP]M)/i);
+                  let sourceUpdatedAt = null;
+                  if (updatedMatch) {
+                    const parsed = new Date(updatedMatch[1]);
+                    if (!isNaN(parsed)) sourceUpdatedAt = parsed.toISOString();
+                  }
                   locations.push({
                     LocationName: name,
-                    CountOfParticipants: m ? parseInt(m[1]) : 0,
+                    CountOfParticipants: countMatch ? parseInt(countMatch[1]) : 0,
                     PercetageCapacity: isNaN(pct) ? 0 : pct,
                     IsClosed: !isOpen,
                     FacilityId: name.toLowerCase().includes('squash') ? 999 : 1068,
                     FacilityName: name.toLowerCase().includes('squash') ? 'SquashBusters' : 'UREC',
-                    LastUpdatedDateAndTime: new Date().toISOString()
+                    LastUpdatedDateAndTime: sourceUpdatedAt,
+                    FetchedAt: new Date().toISOString()
                   });
                 }
               });
