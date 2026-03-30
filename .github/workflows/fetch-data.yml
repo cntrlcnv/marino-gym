@@ -17,32 +17,72 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Puppeteer
+        run: npm install puppeteer
+
       - name: Fetch occupancy data
         run: |
-          python3 - <<'EOF'
-          import urllib.request
-          import json
+          node << 'EOF'
+          const puppeteer = require('puppeteer');
 
-          url = "https://goboardapi.azurewebsites.net/api/FacilityCount/GetCountsByAccountAPIKey?AccountAPIKey=2a2be0d8-df10-4a48-bedd-b3bc0cd628e7"
+          (async () => {
+            const browser = await puppeteer.launch({
+              args: ['--no-sandbox', '--disable-setuid-sandbox']
+            });
+            const page = await browser.newPage();
 
-          req = urllib.request.Request(url)
-          req.add_header("Accept", "application/json, text/javascript, */*; q=0.01")
-          req.add_header("Accept-Language", "en-US,en;q=0.9")
-          req.add_header("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36")
-          req.add_header("Referer", "https://recreation.northeastern.edu/")
-          req.add_header("Origin", "https://recreation.northeastern.edu")
-          req.add_header("X-Requested-With", "XMLHttpRequest")
+            await page.setUserAgent('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36');
 
-          with urllib.request.urlopen(req) as response:
-              data = response.read().decode("utf-8")
-              parsed = json.loads(data)
-              if isinstance(parsed, list):
-                  with open("data.json", "w") as f:
-                      f.write(data)
-                  print(f"Success: {len(parsed)} locations fetched")
-              else:
-                  print("Error: unexpected response", data[:200])
-                  exit(1)
+            await page.goto('https://www.connect2mycloud.com/Widgets/Data/locationCount?type=circle&key=2a2be0d8-df10-4a48-bedd-b3bc0cd628e7&loc_status=false', {
+              waitUntil: 'networkidle2',
+              timeout: 30000
+            });
+
+            // Wait for data to load
+            await page.waitForFunction(() => {
+              const els = document.querySelectorAll('.col-md-3, .col-sm-6');
+              return Array.from(els).some(el => el.innerText.includes('Last Count'));
+            }, { timeout: 15000 });
+
+            const data = await page.evaluate(() => {
+              const locations = [];
+              document.querySelectorAll('.col-md-3, .col-sm-6').forEach(el => {
+                const lines = el.innerText.trim().split('\n').map(s => s.trim()).filter(Boolean);
+                if (lines.length >= 3 && (lines[1] || '').match(/floor|center|court|studio|gym|pool|track|fitness|squash|lounge/i)) {
+                  const pct = parseInt(lines[0]);
+                  const name = lines[1];
+                  const isOpen = lines[2] && lines[2].toLowerCase().includes('open');
+                  const m = el.innerText.match(/Last Count:\s*(\d+)/);
+                  locations.push({
+                    LocationName: name,
+                    CountOfParticipants: m ? parseInt(m[1]) : 0,
+                    PercetageCapacity: isNaN(pct) ? 0 : pct,
+                    IsClosed: !isOpen,
+                    FacilityId: name.toLowerCase().includes('squash') ? 999 : 1068,
+                    FacilityName: name.toLowerCase().includes('squash') ? 'SquashBusters' : 'UREC',
+                    LastUpdatedDateAndTime: new Date().toISOString()
+                  });
+                }
+              });
+              return locations;
+            });
+
+            await browser.close();
+
+            if (!data || data.length === 0) {
+              console.error('No data found');
+              process.exit(1);
+            }
+
+            const fs = require('fs');
+            fs.writeFileSync('data.json', JSON.stringify(data, null, 2));
+            console.log(`Success: ${data.length} locations fetched`);
+          })();
           EOF
 
       - name: Commit and push data
