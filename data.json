@@ -1,82 +1,82 @@
 [
   {
     "LocationName": "SquashBusters - 4th Floor",
-    "CountOfParticipants": 38,
-    "PercetageCapacity": 63,
+    "CountOfParticipants": 35,
+    "PercetageCapacity": 58,
     "IsClosed": false,
     "FacilityId": 999,
     "FacilityName": "SquashBusters",
-    "LastUpdatedDateAndTime": "2026-03-30T19:08:00.000Z",
-    "FetchedAt": "2026-03-30T19:13:55.945Z"
+    "LastUpdatedDateAndTime": "2026-03-30T19:30:00.000Z",
+    "FetchedAt": "2026-03-30T20:01:26.295Z"
   },
   {
-    "LocationName": "Marino Center - Studio A",
-    "CountOfParticipants": 7,
-    "PercetageCapacity": 21,
+    "LocationName": "Studio A",
+    "CountOfParticipants": 8,
+    "PercetageCapacity": 24,
     "IsClosed": false,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-03-30T18:54:00.000Z",
-    "FetchedAt": "2026-03-30T19:13:55.945Z"
+    "LastUpdatedDateAndTime": "2026-03-30T19:55:00.000Z",
+    "FetchedAt": "2026-03-30T20:01:26.295Z"
   },
   {
-    "LocationName": "Marino Center - Studio B",
+    "LocationName": "Studio B",
     "CountOfParticipants": 2,
     "PercetageCapacity": 6,
     "IsClosed": false,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-03-30T18:54:00.000Z",
-    "FetchedAt": "2026-03-30T19:13:55.945Z"
+    "LastUpdatedDateAndTime": "2026-03-30T19:55:00.000Z",
+    "FetchedAt": "2026-03-30T20:01:26.295Z"
   },
   {
-    "LocationName": "Marino Center- 2nd Floor",
-    "CountOfParticipants": 45,
-    "PercetageCapacity": 43,
+    "LocationName": "2nd Floor",
+    "CountOfParticipants": 42,
+    "PercetageCapacity": 40,
     "IsClosed": false,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-03-30T18:54:00.000Z",
-    "FetchedAt": "2026-03-30T19:13:55.945Z"
+    "LastUpdatedDateAndTime": "2026-03-30T19:55:00.000Z",
+    "FetchedAt": "2026-03-30T20:01:26.295Z"
   },
   {
-    "LocationName": "Marino Center - Gymnasium",
+    "LocationName": "Gymnasium",
+    "CountOfParticipants": 27,
+    "PercetageCapacity": 45,
+    "IsClosed": false,
+    "FacilityId": 1068,
+    "FacilityName": "UREC",
+    "LastUpdatedDateAndTime": "2026-03-30T19:55:00.000Z",
+    "FetchedAt": "2026-03-30T20:01:26.295Z"
+  },
+  {
+    "LocationName": "3rd Floor Weight Room",
+    "CountOfParticipants": 51,
+    "PercetageCapacity": 78,
+    "IsClosed": false,
+    "FacilityId": 1068,
+    "FacilityName": "UREC",
+    "LastUpdatedDateAndTime": "2026-03-30T19:34:00.000Z",
+    "FetchedAt": "2026-03-30T20:01:26.295Z"
+  },
+  {
+    "LocationName": "3rd Floor Select & Cardio",
+    "CountOfParticipants": 48,
+    "PercetageCapacity": 53,
+    "IsClosed": false,
+    "FacilityId": 1068,
+    "FacilityName": "UREC",
+    "LastUpdatedDateAndTime": "2026-03-30T19:34:00.000Z",
+    "FetchedAt": "2026-03-30T20:01:26.295Z"
+  },
+  {
+    "LocationName": "1st Floor Weight Room",
     "CountOfParticipants": 23,
-    "PercetageCapacity": 38,
+    "PercetageCapacity": 66,
     "IsClosed": false,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-03-30T18:54:00.000Z",
-    "FetchedAt": "2026-03-30T19:13:55.945Z"
-  },
-  {
-    "LocationName": "Marino Center - 3rd Floor Weight Room",
-    "CountOfParticipants": 60,
-    "PercetageCapacity": 92,
-    "IsClosed": false,
-    "FacilityId": 1068,
-    "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-03-30T18:55:00.000Z",
-    "FetchedAt": "2026-03-30T19:13:55.945Z"
-  },
-  {
-    "LocationName": "Marino Center - 3rd Floor Select & Cardio",
-    "CountOfParticipants": 71,
-    "PercetageCapacity": 79,
-    "IsClosed": false,
-    "FacilityId": 1068,
-    "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-03-30T18:55:00.000Z",
-    "FetchedAt": "2026-03-30T19:13:55.945Z"
-  },
-  {
-    "LocationName": "Marino Center- 1st Floor Weight Room",
-    "CountOfParticipants": 12,
-    "PercetageCapacity": 34,
-    "IsClosed": false,
-    "FacilityId": 1068,
-    "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-03-30T18:59:00.000Z",
-    "FetchedAt": "2026-03-30T19:13:55.945Z"
+    "LastUpdatedDateAndTime": "2026-03-30T19:52:00.000Z",
+    "FetchedAt": "2026-03-30T20:01:26.295Z"
   }
 ]
