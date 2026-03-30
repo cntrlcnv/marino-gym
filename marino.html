@@ -3,124 +3,532 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Marino Live Occupancy</title>
+  <title>Marino · Live Occupancy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #080c10;
+      --surface: #0e1419;
+      --border: #1a2230;
+      --text: #e8edf2;
+      --muted: #4a5568;
+      --green: #00e5a0;
+      --yellow: #f5c842;
+      --red: #ff4757;
+      --green-dim: rgba(0,229,160,0.12);
+      --yellow-dim: rgba(245,200,66,0.12);
+      --red-dim: rgba(255,71,87,0.12);
+    }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-      background: #0a0a0a; color: #fff;
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      min-height: 100vh; padding: 32px 16px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
     }
-    header { text-align: center; margin-bottom: 32px; }
-    header h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 6px; }
-    .live-badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      font-size: 0.75rem; color: #aaa; text-transform: uppercase; letter-spacing: 0.1em;
+
+    /* Subtle grid background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,229,160,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,229,160,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
     }
-    .dot {
-      width: 8px; height: 8px; border-radius: 50%; background: #22c55e;
-      animation: pulse 2s infinite;
+
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
     }
-    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+    /* Header */
+    header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 56px;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .header-left h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      color: var(--text);
+    }
+
+    .header-left h1 span {
+      color: var(--green);
+    }
+
+    .header-sub {
+      margin-top: 10px;
+      font-size: 0.8rem;
+      font-family: 'DM Mono', monospace;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .live-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(0,229,160,0.08);
+      border: 1px solid rgba(0,229,160,0.2);
+      border-radius: 100px;
+      padding: 6px 14px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--green);
+      letter-spacing: 0.1em;
+      white-space: nowrap;
+      margin-top: 4px;
+    }
+
+    .live-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 8px var(--green);
+      animation: blink 2s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; box-shadow: 0 0 8px var(--green); }
+      50% { opacity: 0.4; box-shadow: none; }
+    }
+
+    /* Summary bar */
+    .summary-bar {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .summary-chip {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 20px;
+      flex: 1;
+      min-width: 140px;
+    }
+
+    .summary-chip .label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .summary-chip .value {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .summary-chip .value.green { color: var(--green); }
+    .summary-chip .value.yellow { color: var(--yellow); }
+    .summary-chip .value.red { color: var(--red); }
+
+    /* Grid */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 16px; max-width: 900px; margin: 0 auto;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
     }
+
+    /* Card */
     .card {
-      background: #161616; border: 1px solid #222; border-radius: 16px;
-      padding: 20px; text-align: center; transition: border-color 0.2s;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+      animation: fadeUp 0.4s ease both;
     }
-    .card:hover { border-color: #444; }
-    .card-name { font-size: 0.85rem; font-weight: 600; margin-bottom: 12px; color: #ccc; }
-    .ring-wrap { position: relative; width: 90px; height: 90px; margin: 0 auto 12px; }
-    .ring-wrap svg { transform: rotate(-90deg); }
-    .ring-bg { fill: none; stroke: #2a2a2a; stroke-width: 8; }
-    .ring-fill { fill: none; stroke-width: 8; stroke-linecap: round; transition: stroke-dashoffset 0.6s ease; }
-    .ring-label {
-      position: absolute; top: 50%; left: 50%;
-      transform: translate(-50%, -50%); font-size: 1.1rem; font-weight: 700;
+
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: #2a3545;
     }
-    .count { font-size: 0.8rem; color: #666; margin-bottom: 4px; }
-    .status-open { color: #22c55e; font-size: 0.72rem; font-weight: 600; }
-    .status-closed { color: #ef4444; font-size: 0.72rem; font-weight: 600; }
-    .error { text-align: center; color: #ef4444; margin-top: 60px; }
-    .loading { text-align: center; color: #555; margin-top: 60px; font-size: 0.9rem; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Stagger animation */
+    .card:nth-child(1) { animation-delay: 0.05s; }
+    .card:nth-child(2) { animation-delay: 0.10s; }
+    .card:nth-child(3) { animation-delay: 0.15s; }
+    .card:nth-child(4) { animation-delay: 0.20s; }
+    .card:nth-child(5) { animation-delay: 0.25s; }
+    .card:nth-child(6) { animation-delay: 0.30s; }
+    .card:nth-child(7) { animation-delay: 0.35s; }
+    .card:nth-child(8) { animation-delay: 0.40s; }
+
+    /* Color accent strip on left */
+    .card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 20%; bottom: 20%;
+      width: 3px;
+      border-radius: 0 4px 4px 0;
+      background: var(--accent-color, var(--green));
+      opacity: 0.6;
+    }
+
+    .card.green  { --accent-color: var(--green); }
+    .card.yellow { --accent-color: var(--yellow); }
+    .card.red    { --accent-color: var(--red); }
+    .card.closed { --accent-color: var(--muted); }
+
+    /* Glow behind bar */
+    .card-glow {
+      position: absolute;
+      top: 0; right: 0;
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      filter: blur(50px);
+      opacity: 0.06;
+      pointer-events: none;
+    }
+
+    .card.green  .card-glow { background: var(--green); }
+    .card.yellow .card-glow { background: var(--yellow); }
+    .card.red    .card-glow { background: var(--red); }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .card-name {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.3;
+      max-width: 160px;
+    }
+
+    .status-badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      padding: 3px 8px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+
+    .status-badge.open   { background: rgba(0,229,160,0.12); color: var(--green); }
+    .status-badge.closed { background: rgba(74,85,104,0.2); color: var(--muted); }
+
+    /* Big percentage */
+    .pct-row {
+      display: flex;
+      align-items: flex-end;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .pct-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .card.green  .pct-num { color: var(--green); }
+    .card.yellow .pct-num { color: var(--yellow); }
+    .card.red    .pct-num { color: var(--red); }
+    .card.closed .pct-num { color: var(--muted); }
+
+    .count-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      font-family: 'DM Mono', monospace;
+      padding-bottom: 6px;
+    }
+
+    /* Progress bar */
+    .bar-track {
+      height: 4px;
+      background: var(--border);
+      border-radius: 100px;
+      overflow: hidden;
+      margin-bottom: 14px;
+    }
+
+    .bar-fill {
+      height: 100%;
+      border-radius: 100px;
+      background: var(--accent-color, var(--green));
+      transition: width 0.8s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    /* Freshness indicator */
+    .freshness {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--muted);
+    }
+
+    .freshness-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .freshness-dot.fresh   { background: var(--green); }
+    .freshness-dot.recent  { background: var(--yellow); }
+    .freshness-dot.stale   { background: var(--red); }
+
+    /* Footer */
+    .footer {
+      margin-top: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-text {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
+
     .refresh-btn {
-      display: block; margin: 24px auto 0; padding: 10px 24px;
-      background: #1a1a1a; border: 1px solid #333; border-radius: 8px;
-      color: #aaa; font-size: 0.8rem; cursor: pointer; transition: border-color 0.2s, color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--muted);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      padding: 8px 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+      letter-spacing: 0.06em;
     }
-    .refresh-btn:hover { border-color: #666; color: #fff; }
-    .updated { text-align: center; font-size: 0.72rem; color: #444; margin-top: 12px; }
+
+    .refresh-btn:hover {
+      border-color: var(--green);
+      color: var(--green);
+    }
+
+    .refresh-icon {
+      display: inline-block;
+      transition: transform 0.4s ease;
+    }
+
+    .refresh-btn:hover .refresh-icon { transform: rotate(180deg); }
+
+    /* Error state */
+    .error-state {
+      text-align: center;
+      padding: 80px 24px;
+      color: var(--muted);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.8rem;
+    }
+
+    /* Loading */
+    .loading-state {
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+      padding: 80px 24px;
+    }
+
+    .loading-dot {
+      width: 8px; height: 8px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: loadBounce 1.2s ease-in-out infinite;
+    }
+    .loading-dot:nth-child(2) { animation-delay: 0.2s; background: var(--yellow); }
+    .loading-dot:nth-child(3) { animation-delay: 0.4s; background: var(--red); }
+
+    @keyframes loadBounce {
+      0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+      40% { transform: scale(1); opacity: 1; }
+    }
+
+    #last-updated {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--muted);
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>🏋️ Marino Fitness Center</h1>
-    <div class="live-badge"><span class="dot"></span> Live Occupancy · Northeastern University</div>
-  </header>
-  <div id="content" class="loading">Loading...</div>
-  <button class="refresh-btn" onclick="loadData()">↻ Refresh</button>
-  <div class="updated" id="updated"></div>
+  <div class="wrapper">
+    <header>
+      <div class="header-left">
+        <h1>MARINO<span>.</span></h1>
+        <div class="header-sub">Northeastern University · Recreation Center</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px">
+        <div class="live-pill"><span class="live-dot"></span> LIVE OCCUPANCY</div>
+        <div id="last-updated">—</div>
+      </div>
+    </header>
+
+    <div class="summary-bar" id="summary-bar" style="display:none">
+      <div class="summary-chip">
+        <div class="label">Total People</div>
+        <div class="value" id="sum-total">—</div>
+      </div>
+      <div class="summary-chip">
+        <div class="label">Busiest Area</div>
+        <div class="value red" id="sum-busiest" style="font-size:1rem;padding-top:4px">—</div>
+      </div>
+      <div class="summary-chip">
+        <div class="label">Best Time Now</div>
+        <div class="value green" id="sum-best" style="font-size:1rem;padding-top:4px">—</div>
+      </div>
+      <div class="summary-chip">
+        <div class="label">Areas Open</div>
+        <div class="value green" id="sum-open">—</div>
+      </div>
+    </div>
+
+    <div id="grid" class="grid">
+      <div class="loading-state">
+        <div class="loading-dot"></div>
+        <div class="loading-dot"></div>
+        <div class="loading-dot"></div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-text">Data via Northeastern University Recreation · Updates every 5 min</div>
+      <button class="refresh-btn" onclick="loadData()">
+        <span class="refresh-icon">↻</span> REFRESH
+      </button>
+    </div>
+  </div>
 
   <script>
-    function getColor(pct) {
-      if (pct < 40) return '#22c55e';
-      if (pct < 70) return '#f59e0b';
-      return '#ef4444';
+    function timeAgo(isoStr) {
+      if (!isoStr) return { text: 'unknown', age: 'stale' };
+      const diff = (Date.now() - new Date(isoStr).getTime()) / 1000 / 60; // minutes
+      let text;
+      if (diff < 1) text = 'just now';
+      else if (diff < 60) text = Math.round(diff) + 'm ago';
+      else if (diff < 1440) text = Math.round(diff / 60) + 'h ago';
+      else text = Math.round(diff / 1440) + 'd ago';
+      const age = diff < 10 ? 'fresh' : diff < 60 ? 'recent' : 'stale';
+      return { text, age };
+    }
+
+    function getCardClass(pct, closed) {
+      if (closed) return 'closed';
+      if (pct >= 75) return 'red';
+      if (pct >= 45) return 'yellow';
+      return 'green';
     }
 
     function makeCard(loc) {
-      const count = loc.CountOfParticipants;
-      const capacity = loc.TotalCapacity;
-      const pct = capacity ? Math.min(count / capacity * 100, 100) : 0;
-      const displayPct = capacity ? Math.round(pct) + '%' : 'N/A';
-      const color = getColor(pct);
-      const circumference = 2 * Math.PI * 36;
-      const offset = capacity ? circumference - (pct / 100) * circumference : circumference;
-      const isOpen = !loc.IsClosed;
+      const pct = loc.PercetageCapacity || 0;
+      const count = loc.CountOfParticipants || 0;
+      const closed = loc.IsClosed;
+      const cls = getCardClass(pct, closed);
+      const { text: freshText, age: freshAge } = timeAgo(loc.LastUpdatedDateAndTime);
+      const displayPct = closed ? '—' : pct + '%';
+
       return `
-        <div class="card">
-          <div class="card-name">${loc.LocationName}</div>
-          <div class="ring-wrap">
-            <svg viewBox="0 0 80 80" width="90" height="90">
-              <circle class="ring-bg" cx="40" cy="40" r="36"/>
-              <circle class="ring-fill" cx="40" cy="40" r="36"
-                stroke="${color}" stroke-dasharray="${circumference}" stroke-dashoffset="${offset}"/>
-            </svg>
-            <div class="ring-label" style="color:${color}">${displayPct}</div>
+        <div class="card ${cls}">
+          <div class="card-glow"></div>
+          <div class="card-header">
+            <div class="card-name">${loc.LocationName}</div>
+            <div class="status-badge ${closed ? 'closed' : 'open'}">${closed ? 'CLOSED' : 'OPEN'}</div>
           </div>
-          <div class="count">Count: ${count}</div>
-          <div class="${isOpen ? 'status-open' : 'status-closed'}">${isOpen ? 'Open' : 'Closed'}</div>
+          <div class="pct-row">
+            <div class="pct-num">${displayPct}</div>
+            <div class="count-label">${count} people</div>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill" style="width:${closed ? 0 : Math.min(pct,100)}%"></div>
+          </div>
+          <div class="freshness">
+            <span class="freshness-dot ${freshAge}"></span>
+            Updated ${freshText}
+          </div>
         </div>`;
     }
 
     async function loadData() {
-      const content = document.getElementById('content');
-      content.className = 'loading';
-      content.innerHTML = 'Loading...';
+      const grid = document.getElementById('grid');
       try {
         const res = await fetch('data.json?t=' + Date.now());
-        if (!res.ok) throw new Error('No data');
+        if (!res.ok) throw new Error('fetch failed');
         const data = await res.json();
-        if (!Array.isArray(data)) throw new Error('Invalid data');
+        if (!Array.isArray(data) || data.length === 0) throw new Error('empty');
 
-        // Filter to Marino (UREC) only
-        const marino = data.filter(loc => loc.FacilityId === 1068);
-        const locations = marino.length > 0 ? marino : data;
+        // Filter Marino only
+        const marino = data.filter(l => l.FacilityId === 1068);
+        const locs = marino.length > 0 ? marino : data;
 
-        content.className = 'grid';
-        content.innerHTML = locations.map(makeCard).join('');
+        grid.innerHTML = locs.map(makeCard).join('');
 
-        const latest = locations.reduce((a, b) =>
-          new Date(a.LastUpdatedDateAndTime) > new Date(b.LastUpdatedDateAndTime) ? a : b
-        );
-        document.getElementById('updated').textContent =
-          'Data as of: ' + new Date(latest.LastUpdatedDateAndTime).toLocaleString();
-      } catch (e) {
-        content.className = 'error';
-        content.innerHTML = '⚠️ Could not load data. Try refreshing.';
+        // Update summary
+        const open = locs.filter(l => !l.IsClosed);
+        const total = open.reduce((s, l) => s + (l.CountOfParticipants || 0), 0);
+        const busiest = open.reduce((a, b) => (b.PercetageCapacity || 0) > (a.PercetageCapacity || 0) ? b : a, open[0]);
+        const least = open.filter(l => l.PercetageCapacity > 0).reduce((a, b) => (b.PercetageCapacity || 0) < (a.PercetageCapacity || 0) ? b : a, open[0]);
+
+        document.getElementById('sum-total').textContent = total;
+        document.getElementById('sum-busiest').textContent = busiest ? busiest.LocationName.replace('Marino Center - ', '').replace('Marino Center- ', '') : '—';
+        document.getElementById('sum-best').textContent = least ? least.LocationName.replace('Marino Center - ', '').replace('Marino Center- ', '') : '—';
+        document.getElementById('sum-open').textContent = open.length + '/' + locs.length;
+        document.getElementById('summary-bar').style.display = 'flex';
+
+        // Last updated timestamp
+        const latest = locs.reduce((a, b) => new Date(b.LastUpdatedDateAndTime) > new Date(a.LastUpdatedDateAndTime) ? b : a, locs[0]);
+        const { text } = timeAgo(latest.LastUpdatedDateAndTime);
+        document.getElementById('last-updated').textContent = 'refreshed ' + text;
+
+      } catch(e) {
+        grid.innerHTML = '<div class="error-state">⚠ Could not load data — try refreshing</div>';
       }
     }
 
