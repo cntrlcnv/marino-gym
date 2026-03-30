@@ -57,6 +57,10 @@ jobs:
             await browser.close();
             if (!raw.length) { console.error('No data'); process.exit(1); }
             const fetchedAt = new Date().toISOString();
+
+            // Strip "Marino Center - " prefix from names
+            const cleanName = (n) => n.replace(/^Marino Center[\s\-\u2013]+/i, '').replace(/^Marino Center$/i, 'Marino Center');
+
             const processed = raw.map(loc => {
               let utcTime = null;
               if (loc.mo !== null && loc.hr !== null) {
@@ -69,8 +73,18 @@ jobs:
                 const finalDy = utcHr >= 24 ? loc.dy + 1 : loc.dy;
                 utcTime = new Date(Date.UTC(loc.yr, loc.mo-1, finalDy, finalHr, loc.mn, 0)).toISOString();
               }
-              console.log(loc.name + ': ' + loc.hr + ':' + String(loc.mn||0).padStart(2,'0') + ' ' + loc.ap + ' ET -> ' + utcTime);
-              return { LocationName: loc.name, CountOfParticipants: loc.count ? +loc.count : 0, PercetageCapacity: isNaN(loc.pct)?0:loc.pct, IsClosed: !loc.open, FacilityId: loc.squash?999:1068, FacilityName: loc.squash?'SquashBusters':'UREC', LastUpdatedDateAndTime: utcTime, FetchedAt: fetchedAt };
+              const name = cleanName(loc.name);
+              console.log(name + ': ' + loc.hr + ':' + String(loc.mn||0).padStart(2,'0') + ' ' + loc.ap + ' ET -> ' + utcTime);
+              return {
+                LocationName: name,
+                CountOfParticipants: loc.count ? +loc.count : 0,
+                PercetageCapacity: isNaN(loc.pct) ? 0 : loc.pct,
+                IsClosed: !loc.open,
+                FacilityId: loc.squash ? 999 : 1068,
+                FacilityName: loc.squash ? 'SquashBusters' : 'UREC',
+                LastUpdatedDateAndTime: utcTime,
+                FetchedAt: fetchedAt
+              };
             });
             fs.writeFileSync('data.json', JSON.stringify(processed, null, 2));
             console.log('Done: ' + processed.length + ' locations');
