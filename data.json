@@ -6,7 +6,7 @@
     "IsClosed": false,
     "FacilityId": 999,
     "FacilityName": "SquashBusters",
-    "LastUpdatedDateAndTime": "2026-03-30T17:59:41.525Z"
+    "LastUpdatedDateAndTime": "2026-03-30T18:01:52.637Z"
   },
   {
     "LocationName": "Marino Center - Studio A",
@@ -15,7 +15,7 @@
     "IsClosed": true,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-03-30T17:59:41.525Z"
+    "LastUpdatedDateAndTime": "2026-03-30T18:01:52.637Z"
   },
   {
     "LocationName": "Marino Center - Studio B",
@@ -24,7 +24,7 @@
     "IsClosed": false,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-03-30T17:59:41.525Z"
+    "LastUpdatedDateAndTime": "2026-03-30T18:01:52.638Z"
   },
   {
     "LocationName": "Marino Center- 2nd Floor",
@@ -33,7 +33,7 @@
     "IsClosed": false,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-03-30T17:59:41.525Z"
+    "LastUpdatedDateAndTime": "2026-03-30T18:01:52.638Z"
   },
   {
     "LocationName": "Marino Center - Gymnasium",
@@ -42,7 +42,7 @@
     "IsClosed": false,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-03-30T17:59:41.525Z"
+    "LastUpdatedDateAndTime": "2026-03-30T18:01:52.638Z"
   },
   {
     "LocationName": "Marino Center - 3rd Floor Weight Room",
@@ -51,7 +51,7 @@
     "IsClosed": false,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-03-30T17:59:41.525Z"
+    "LastUpdatedDateAndTime": "2026-03-30T18:01:52.638Z"
   },
   {
     "LocationName": "Marino Center - 3rd Floor Select & Cardio",
@@ -60,7 +60,7 @@
     "IsClosed": false,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-03-30T17:59:41.525Z"
+    "LastUpdatedDateAndTime": "2026-03-30T18:01:52.638Z"
   },
   {
     "LocationName": "Marino Center- 1st Floor Weight Room",
@@ -69,6 +69,6 @@
     "IsClosed": false,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-03-30T17:59:41.525Z"
+    "LastUpdatedDateAndTime": "2026-03-30T18:01:52.638Z"
   }
 ]
