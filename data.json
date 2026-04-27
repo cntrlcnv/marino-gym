@@ -7,7 +7,7 @@
     "FacilityId": 999,
     "FacilityName": "SquashBusters",
     "LastUpdatedDateAndTime": "2026-04-27T23:56:00.000Z",
-    "FetchedAt": "2026-04-27T23:58:23.579Z"
+    "FetchedAt": "2026-04-27T23:59:23.582Z"
   },
   {
     "LocationName": "Studio A",
@@ -17,7 +17,7 @@
     "FacilityId": 1068,
     "FacilityName": "UREC",
     "LastUpdatedDateAndTime": "2026-04-27T23:21:00.000Z",
-    "FetchedAt": "2026-04-27T23:58:23.579Z"
+    "FetchedAt": "2026-04-27T23:59:23.582Z"
   },
   {
     "LocationName": "Studio B",
@@ -27,7 +27,7 @@
     "FacilityId": 1068,
     "FacilityName": "UREC",
     "LastUpdatedDateAndTime": "2026-04-27T23:21:00.000Z",
-    "FetchedAt": "2026-04-27T23:58:23.579Z"
+    "FetchedAt": "2026-04-27T23:59:23.582Z"
   },
   {
     "LocationName": "2nd Floor",
@@ -37,7 +37,7 @@
     "FacilityId": 1068,
     "FacilityName": "UREC",
     "LastUpdatedDateAndTime": "2026-04-27T23:21:00.000Z",
-    "FetchedAt": "2026-04-27T23:58:23.579Z"
+    "FetchedAt": "2026-04-27T23:59:23.582Z"
   },
   {
     "LocationName": "Gymnasium",
@@ -47,7 +47,7 @@
     "FacilityId": 1068,
     "FacilityName": "UREC",
     "LastUpdatedDateAndTime": "2026-04-27T23:21:00.000Z",
-    "FetchedAt": "2026-04-27T23:58:23.579Z"
+    "FetchedAt": "2026-04-27T23:59:23.582Z"
   },
   {
     "LocationName": "3rd Floor Weight Room",
@@ -57,7 +57,7 @@
     "FacilityId": 1068,
     "FacilityName": "UREC",
     "LastUpdatedDateAndTime": "2026-04-27T23:22:00.000Z",
-    "FetchedAt": "2026-04-27T23:58:23.579Z"
+    "FetchedAt": "2026-04-27T23:59:23.582Z"
   },
   {
     "LocationName": "3rd Floor Select & Cardio",
@@ -67,7 +67,7 @@
     "FacilityId": 1068,
     "FacilityName": "UREC",
     "LastUpdatedDateAndTime": "2026-04-27T23:22:00.000Z",
-    "FetchedAt": "2026-04-27T23:58:23.579Z"
+    "FetchedAt": "2026-04-27T23:59:23.582Z"
   },
   {
     "LocationName": "1st Floor Weight Room",
@@ -77,6 +77,6 @@
     "FacilityId": 1068,
     "FacilityName": "UREC",
     "LastUpdatedDateAndTime": "2026-04-27T23:29:00.000Z",
-    "FetchedAt": "2026-04-27T23:58:23.579Z"
+    "FetchedAt": "2026-04-27T23:59:23.582Z"
   }
 ]
