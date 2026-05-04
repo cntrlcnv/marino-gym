@@ -7,7 +7,7 @@
     "FacilityId": 999,
     "FacilityName": "SquashBusters",
     "LastUpdatedDateAndTime": "2026-05-04T10:33:00.000Z",
-    "FetchedAt": "2026-05-04T11:31:29.564Z"
+    "FetchedAt": "2026-05-04T11:32:21.722Z"
   },
   {
     "LocationName": "Studio A",
@@ -17,7 +17,7 @@
     "FacilityId": 1068,
     "FacilityName": "UREC",
     "LastUpdatedDateAndTime": "2026-05-04T11:19:00.000Z",
-    "FetchedAt": "2026-05-04T11:31:29.564Z"
+    "FetchedAt": "2026-05-04T11:32:21.722Z"
   },
   {
     "LocationName": "Studio B",
@@ -27,7 +27,7 @@
     "FacilityId": 1068,
     "FacilityName": "UREC",
     "LastUpdatedDateAndTime": "2026-05-04T11:19:00.000Z",
-    "FetchedAt": "2026-05-04T11:31:29.564Z"
+    "FetchedAt": "2026-05-04T11:32:21.722Z"
   },
   {
     "LocationName": "2nd Floor",
@@ -37,7 +37,7 @@
     "FacilityId": 1068,
     "FacilityName": "UREC",
     "LastUpdatedDateAndTime": "2026-05-04T11:19:00.000Z",
-    "FetchedAt": "2026-05-04T11:31:29.564Z"
+    "FetchedAt": "2026-05-04T11:32:21.722Z"
   },
   {
     "LocationName": "Gymnasium",
@@ -47,7 +47,7 @@
     "FacilityId": 1068,
     "FacilityName": "UREC",
     "LastUpdatedDateAndTime": "2026-05-04T11:19:00.000Z",
-    "FetchedAt": "2026-05-04T11:31:29.564Z"
+    "FetchedAt": "2026-05-04T11:32:21.722Z"
   },
   {
     "LocationName": "3rd Floor Weight Room",
@@ -57,7 +57,7 @@
     "FacilityId": 1068,
     "FacilityName": "UREC",
     "LastUpdatedDateAndTime": "2026-05-04T11:19:00.000Z",
-    "FetchedAt": "2026-05-04T11:31:29.564Z"
+    "FetchedAt": "2026-05-04T11:32:21.722Z"
   },
   {
     "LocationName": "3rd Floor Select & Cardio",
@@ -67,7 +67,7 @@
     "FacilityId": 1068,
     "FacilityName": "UREC",
     "LastUpdatedDateAndTime": "2026-05-04T11:19:00.000Z",
-    "FetchedAt": "2026-05-04T11:31:29.564Z"
+    "FetchedAt": "2026-05-04T11:32:21.722Z"
   },
   {
     "LocationName": "1st Floor Weight Room",
@@ -76,7 +76,7 @@
     "IsClosed": false,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-05-04T11:07:00.000Z",
-    "FetchedAt": "2026-05-04T11:31:29.564Z"
+    "LastUpdatedDateAndTime": "2026-05-04T11:30:00.000Z",
+    "FetchedAt": "2026-05-04T11:32:21.722Z"
   }
 ]
