@@ -7,7 +7,7 @@
     "FacilityId": 999,
     "FacilityName": "SquashBusters",
     "LastUpdatedDateAndTime": "2026-05-18T21:58:00.000Z",
-    "FetchedAt": "2026-05-18T22:04:21.748Z"
+    "FetchedAt": "2026-05-18T22:05:24.795Z"
   },
   {
     "LocationName": "Studio A",
@@ -17,7 +17,7 @@
     "FacilityId": 1068,
     "FacilityName": "UREC",
     "LastUpdatedDateAndTime": "2026-05-18T21:33:00.000Z",
-    "FetchedAt": "2026-05-18T22:04:21.748Z"
+    "FetchedAt": "2026-05-18T22:05:24.795Z"
   },
   {
     "LocationName": "Studio B",
@@ -26,28 +26,28 @@
     "IsClosed": false,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-05-18T21:33:00.000Z",
-    "FetchedAt": "2026-05-18T22:04:21.748Z"
+    "LastUpdatedDateAndTime": "2026-05-18T22:03:00.000Z",
+    "FetchedAt": "2026-05-18T22:05:24.795Z"
   },
   {
     "LocationName": "2nd Floor",
-    "CountOfParticipants": 56,
-    "PercetageCapacity": 53,
+    "CountOfParticipants": 59,
+    "PercetageCapacity": 56,
     "IsClosed": false,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-05-18T21:33:00.000Z",
-    "FetchedAt": "2026-05-18T22:04:21.748Z"
+    "LastUpdatedDateAndTime": "2026-05-18T22:03:00.000Z",
+    "FetchedAt": "2026-05-18T22:05:24.795Z"
   },
   {
     "LocationName": "Gymnasium",
-    "CountOfParticipants": 27,
-    "PercetageCapacity": 45,
+    "CountOfParticipants": 35,
+    "PercetageCapacity": 58,
     "IsClosed": false,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-05-18T21:33:00.000Z",
-    "FetchedAt": "2026-05-18T22:04:21.748Z"
+    "LastUpdatedDateAndTime": "2026-05-18T22:03:00.000Z",
+    "FetchedAt": "2026-05-18T22:05:24.795Z"
   },
   {
     "LocationName": "3rd Floor Weight Room",
@@ -57,7 +57,7 @@
     "FacilityId": 1068,
     "FacilityName": "UREC",
     "LastUpdatedDateAndTime": "2026-05-18T22:01:00.000Z",
-    "FetchedAt": "2026-05-18T22:04:21.748Z"
+    "FetchedAt": "2026-05-18T22:05:24.795Z"
   },
   {
     "LocationName": "3rd Floor Select & Cardio",
@@ -67,7 +67,7 @@
     "FacilityId": 1068,
     "FacilityName": "UREC",
     "LastUpdatedDateAndTime": "2026-05-18T22:01:00.000Z",
-    "FetchedAt": "2026-05-18T22:04:21.748Z"
+    "FetchedAt": "2026-05-18T22:05:24.795Z"
   },
   {
     "LocationName": "1st Floor Weight Room",
@@ -77,6 +77,6 @@
     "FacilityId": 1068,
     "FacilityName": "UREC",
     "LastUpdatedDateAndTime": "2026-05-18T22:00:00.000Z",
-    "FetchedAt": "2026-05-18T22:04:21.748Z"
+    "FetchedAt": "2026-05-18T22:05:24.795Z"
   }
 ]
