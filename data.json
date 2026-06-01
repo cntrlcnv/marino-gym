@@ -1,82 +1,82 @@
 [
   {
     "LocationName": "SquashBusters - 4th Floor",
-    "CountOfParticipants": 0,
-    "PercetageCapacity": 0,
+    "CountOfParticipants": 15,
+    "PercetageCapacity": 25,
     "IsClosed": false,
     "FacilityId": 999,
     "FacilityName": "SquashBusters",
-    "LastUpdatedDateAndTime": "2026-05-29T22:01:00.000Z",
-    "FetchedAt": "2026-06-01T07:10:06.135Z"
+    "LastUpdatedDateAndTime": "2026-06-01T12:36:00.000Z",
+    "FetchedAt": "2026-06-01T12:48:16.309Z"
   },
   {
     "LocationName": "Studio A",
+    "CountOfParticipants": 0,
+    "PercetageCapacity": 0,
+    "IsClosed": false,
+    "FacilityId": 1068,
+    "FacilityName": "UREC",
+    "LastUpdatedDateAndTime": "2026-06-01T12:32:00.000Z",
+    "FetchedAt": "2026-06-01T12:48:16.309Z"
+  },
+  {
+    "LocationName": "Studio B",
     "CountOfParticipants": 2,
     "PercetageCapacity": 6,
     "IsClosed": false,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-06-01T03:03:00.000Z",
-    "FetchedAt": "2026-06-01T07:10:06.135Z"
-  },
-  {
-    "LocationName": "Studio B",
-    "CountOfParticipants": 1,
-    "PercetageCapacity": 3,
-    "IsClosed": false,
-    "FacilityId": 1068,
-    "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-06-01T03:03:00.000Z",
-    "FetchedAt": "2026-06-01T07:10:06.135Z"
+    "LastUpdatedDateAndTime": "2026-06-01T12:32:00.000Z",
+    "FetchedAt": "2026-06-01T12:48:16.309Z"
   },
   {
     "LocationName": "2nd Floor",
-    "CountOfParticipants": 8,
-    "PercetageCapacity": 8,
-    "IsClosed": false,
-    "FacilityId": 1068,
-    "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-06-01T03:03:00.000Z",
-    "FetchedAt": "2026-06-01T07:10:06.135Z"
-  },
-  {
-    "LocationName": "Gymnasium",
-    "CountOfParticipants": 10,
-    "PercetageCapacity": 17,
-    "IsClosed": false,
-    "FacilityId": 1068,
-    "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-06-01T03:03:00.000Z",
-    "FetchedAt": "2026-06-01T07:10:06.135Z"
-  },
-  {
-    "LocationName": "3rd Floor Weight Room",
     "CountOfParticipants": 17,
-    "PercetageCapacity": 26,
-    "IsClosed": false,
-    "FacilityId": 1068,
-    "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-06-01T02:36:00.000Z",
-    "FetchedAt": "2026-06-01T07:10:06.135Z"
-  },
-  {
-    "LocationName": "3rd Floor Select & Cardio",
-    "CountOfParticipants": 14,
     "PercetageCapacity": 16,
     "IsClosed": false,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-06-01T02:36:00.000Z",
-    "FetchedAt": "2026-06-01T07:10:06.135Z"
+    "LastUpdatedDateAndTime": "2026-06-01T12:32:00.000Z",
+    "FetchedAt": "2026-06-01T12:48:16.309Z"
   },
   {
-    "LocationName": "1st Floor Weight Room",
+    "LocationName": "Gymnasium",
     "CountOfParticipants": 1,
-    "PercetageCapacity": 3,
+    "PercetageCapacity": 2,
     "IsClosed": false,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-06-01T03:32:00.000Z",
-    "FetchedAt": "2026-06-01T07:10:06.135Z"
+    "LastUpdatedDateAndTime": "2026-06-01T12:43:00.000Z",
+    "FetchedAt": "2026-06-01T12:48:16.309Z"
+  },
+  {
+    "LocationName": "3rd Floor Weight Room",
+    "CountOfParticipants": 20,
+    "PercetageCapacity": 31,
+    "IsClosed": false,
+    "FacilityId": 1068,
+    "FacilityName": "UREC",
+    "LastUpdatedDateAndTime": "2026-06-01T12:28:00.000Z",
+    "FetchedAt": "2026-06-01T12:48:16.309Z"
+  },
+  {
+    "LocationName": "3rd Floor Select & Cardio",
+    "CountOfParticipants": 20,
+    "PercetageCapacity": 22,
+    "IsClosed": false,
+    "FacilityId": 1068,
+    "FacilityName": "UREC",
+    "LastUpdatedDateAndTime": "2026-06-01T12:28:00.000Z",
+    "FetchedAt": "2026-06-01T12:48:16.309Z"
+  },
+  {
+    "LocationName": "1st Floor Weight Room",
+    "CountOfParticipants": 7,
+    "PercetageCapacity": 20,
+    "IsClosed": false,
+    "FacilityId": 1068,
+    "FacilityName": "UREC",
+    "LastUpdatedDateAndTime": "2026-06-01T12:27:00.000Z",
+    "FetchedAt": "2026-06-01T12:48:16.309Z"
   }
 ]
