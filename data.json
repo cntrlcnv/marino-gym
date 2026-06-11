@@ -1,13 +1,13 @@
 [
   {
     "LocationName": "SquashBusters - 4th Floor",
-    "CountOfParticipants": 13,
-    "PercetageCapacity": 22,
+    "CountOfParticipants": 12,
+    "PercetageCapacity": 20,
     "IsClosed": false,
     "FacilityId": 999,
     "FacilityName": "SquashBusters",
-    "LastUpdatedDateAndTime": "2026-06-11T17:32:00.000Z",
-    "FetchedAt": "2026-06-11T17:56:50.525Z"
+    "LastUpdatedDateAndTime": "2026-06-11T19:55:00.000Z",
+    "FetchedAt": "2026-06-11T20:12:35.233Z"
   },
   {
     "LocationName": "Studio A",
@@ -16,67 +16,67 @@
     "IsClosed": false,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-06-11T17:47:00.000Z",
-    "FetchedAt": "2026-06-11T17:56:50.525Z"
+    "LastUpdatedDateAndTime": "2026-06-11T20:00:00.000Z",
+    "FetchedAt": "2026-06-11T20:12:35.233Z"
   },
   {
     "LocationName": "Studio B",
-    "CountOfParticipants": 1,
-    "PercetageCapacity": 3,
+    "CountOfParticipants": 2,
+    "PercetageCapacity": 6,
     "IsClosed": false,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-06-11T17:47:00.000Z",
-    "FetchedAt": "2026-06-11T17:56:50.525Z"
+    "LastUpdatedDateAndTime": "2026-06-11T20:00:00.000Z",
+    "FetchedAt": "2026-06-11T20:12:35.233Z"
   },
   {
     "LocationName": "2nd Floor",
-    "CountOfParticipants": 21,
+    "CountOfParticipants": 22,
+    "PercetageCapacity": 21,
+    "IsClosed": false,
+    "FacilityId": 1068,
+    "FacilityName": "UREC",
+    "LastUpdatedDateAndTime": "2026-06-11T20:00:00.000Z",
+    "FetchedAt": "2026-06-11T20:12:35.233Z"
+  },
+  {
+    "LocationName": "Gymnasium",
+    "CountOfParticipants": 15,
+    "PercetageCapacity": 25,
+    "IsClosed": false,
+    "FacilityId": 1068,
+    "FacilityName": "UREC",
+    "LastUpdatedDateAndTime": "2026-06-11T20:01:00.000Z",
+    "FetchedAt": "2026-06-11T20:12:35.233Z"
+  },
+  {
+    "LocationName": "3rd Floor Weight Room",
+    "CountOfParticipants": 34,
+    "PercetageCapacity": 52,
+    "IsClosed": false,
+    "FacilityId": 1068,
+    "FacilityName": "UREC",
+    "LastUpdatedDateAndTime": "2026-06-11T19:46:00.000Z",
+    "FetchedAt": "2026-06-11T20:12:35.233Z"
+  },
+  {
+    "LocationName": "3rd Floor Select & Cardio",
+    "CountOfParticipants": 41,
+    "PercetageCapacity": 46,
+    "IsClosed": false,
+    "FacilityId": 1068,
+    "FacilityName": "UREC",
+    "LastUpdatedDateAndTime": "2026-06-11T19:46:00.000Z",
+    "FetchedAt": "2026-06-11T20:12:35.233Z"
+  },
+  {
+    "LocationName": "1st Floor Weight Room",
+    "CountOfParticipants": 7,
     "PercetageCapacity": 20,
     "IsClosed": false,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-06-11T17:47:00.000Z",
-    "FetchedAt": "2026-06-11T17:56:50.525Z"
-  },
-  {
-    "LocationName": "Gymnasium",
-    "CountOfParticipants": 11,
-    "PercetageCapacity": 18,
-    "IsClosed": false,
-    "FacilityId": 1068,
-    "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-06-11T17:47:00.000Z",
-    "FetchedAt": "2026-06-11T17:56:50.525Z"
-  },
-  {
-    "LocationName": "3rd Floor Weight Room",
-    "CountOfParticipants": 27,
-    "PercetageCapacity": 42,
-    "IsClosed": false,
-    "FacilityId": 1068,
-    "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-06-11T17:47:00.000Z",
-    "FetchedAt": "2026-06-11T17:56:50.525Z"
-  },
-  {
-    "LocationName": "3rd Floor Select & Cardio",
-    "CountOfParticipants": 34,
-    "PercetageCapacity": 38,
-    "IsClosed": false,
-    "FacilityId": 1068,
-    "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-06-11T17:47:00.000Z",
-    "FetchedAt": "2026-06-11T17:56:50.525Z"
-  },
-  {
-    "LocationName": "1st Floor Weight Room",
-    "CountOfParticipants": 4,
-    "PercetageCapacity": 11,
-    "IsClosed": false,
-    "FacilityId": 1068,
-    "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-06-11T17:21:00.000Z",
-    "FetchedAt": "2026-06-11T17:56:50.525Z"
+    "LastUpdatedDateAndTime": "2026-06-11T20:05:00.000Z",
+    "FetchedAt": "2026-06-11T20:12:35.233Z"
   }
 ]
