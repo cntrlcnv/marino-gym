@@ -1,82 +1,82 @@
 [
   {
     "LocationName": "SquashBusters - 4th Floor",
-    "CountOfParticipants": 21,
-    "PercetageCapacity": 35,
+    "CountOfParticipants": 32,
+    "PercetageCapacity": 53,
     "IsClosed": false,
     "FacilityId": 999,
     "FacilityName": "SquashBusters",
-    "LastUpdatedDateAndTime": "2026-07-07T21:17:00.000Z",
-    "FetchedAt": "2026-07-07T21:40:07.903Z"
+    "LastUpdatedDateAndTime": "2026-07-07T22:33:00.000Z",
+    "FetchedAt": "2026-07-07T22:42:22.867Z"
   },
   {
     "LocationName": "Studio A",
-    "CountOfParticipants": 5,
-    "PercetageCapacity": 15,
-    "IsClosed": false,
-    "FacilityId": 1068,
-    "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-07-07T21:24:00.000Z",
-    "FetchedAt": "2026-07-07T21:40:07.903Z"
-  },
-  {
-    "LocationName": "Studio B",
-    "CountOfParticipants": 0,
+    "CountOfParticipants": 13,
     "PercetageCapacity": null,
     "IsClosed": true,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-07-07T21:11:00.000Z",
-    "FetchedAt": "2026-07-07T21:40:07.903Z"
+    "LastUpdatedDateAndTime": "2026-07-07T22:25:00.000Z",
+    "FetchedAt": "2026-07-07T22:42:22.867Z"
+  },
+  {
+    "LocationName": "Studio B",
+    "CountOfParticipants": 8,
+    "PercetageCapacity": 24,
+    "IsClosed": false,
+    "FacilityId": 1068,
+    "FacilityName": "UREC",
+    "LastUpdatedDateAndTime": "2026-07-07T22:26:00.000Z",
+    "FetchedAt": "2026-07-07T22:42:22.867Z"
   },
   {
     "LocationName": "2nd Floor",
-    "CountOfParticipants": 40,
+    "CountOfParticipants": 46,
+    "PercetageCapacity": 44,
+    "IsClosed": false,
+    "FacilityId": 1068,
+    "FacilityName": "UREC",
+    "LastUpdatedDateAndTime": "2026-07-07T22:26:00.000Z",
+    "FetchedAt": "2026-07-07T22:42:22.867Z"
+  },
+  {
+    "LocationName": "Gymnasium",
+    "CountOfParticipants": 23,
     "PercetageCapacity": 38,
     "IsClosed": false,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-07-07T21:11:00.000Z",
-    "FetchedAt": "2026-07-07T21:40:07.903Z"
+    "LastUpdatedDateAndTime": "2026-07-07T22:26:00.000Z",
+    "FetchedAt": "2026-07-07T22:42:22.867Z"
   },
   {
-    "LocationName": "Gymnasium",
-    "CountOfParticipants": 22,
+    "LocationName": "3rd Floor Weight Room",
+    "CountOfParticipants": 55,
+    "PercetageCapacity": 85,
+    "IsClosed": false,
+    "FacilityId": 1068,
+    "FacilityName": "UREC",
+    "LastUpdatedDateAndTime": "2026-07-07T22:25:00.000Z",
+    "FetchedAt": "2026-07-07T22:42:22.867Z"
+  },
+  {
+    "LocationName": "3rd Floor Select & Cardio",
+    "CountOfParticipants": 50,
+    "PercetageCapacity": 56,
+    "IsClosed": false,
+    "FacilityId": 1068,
+    "FacilityName": "UREC",
+    "LastUpdatedDateAndTime": "2026-07-07T22:32:00.000Z",
+    "FetchedAt": "2026-07-07T22:42:22.867Z"
+  },
+  {
+    "LocationName": "1st Floor Weight Room",
+    "CountOfParticipants": 13,
     "PercetageCapacity": 37,
     "IsClosed": false,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-07-07T21:24:00.000Z",
-    "FetchedAt": "2026-07-07T21:40:07.903Z"
-  },
-  {
-    "LocationName": "3rd Floor Weight Room",
-    "CountOfParticipants": 30,
-    "PercetageCapacity": 46,
-    "IsClosed": false,
-    "FacilityId": 1068,
-    "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-07-07T21:04:00.000Z",
-    "FetchedAt": "2026-07-07T21:40:07.903Z"
-  },
-  {
-    "LocationName": "3rd Floor Select & Cardio",
-    "CountOfParticipants": 39,
-    "PercetageCapacity": 43,
-    "IsClosed": false,
-    "FacilityId": 1068,
-    "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-07-07T21:04:00.000Z",
-    "FetchedAt": "2026-07-07T21:40:07.903Z"
-  },
-  {
-    "LocationName": "1st Floor Weight Room",
-    "CountOfParticipants": 9,
-    "PercetageCapacity": 26,
-    "IsClosed": false,
-    "FacilityId": 1068,
-    "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-07-07T21:02:00.000Z",
-    "FetchedAt": "2026-07-07T21:40:07.903Z"
+    "LastUpdatedDateAndTime": "2026-07-07T22:30:00.000Z",
+    "FetchedAt": "2026-07-07T22:42:22.867Z"
   }
 ]
