@@ -1,82 +1,82 @@
 [
   {
     "LocationName": "SquashBusters - 4th Floor",
-    "CountOfParticipants": 8,
-    "PercetageCapacity": 13,
+    "CountOfParticipants": 36,
+    "PercetageCapacity": 60,
     "IsClosed": false,
     "FacilityId": 999,
     "FacilityName": "SquashBusters",
-    "LastUpdatedDateAndTime": "2026-10-13T17:30:00.000Z",
-    "FetchedAt": "2026-10-13T17:46:05.988Z"
+    "LastUpdatedDateAndTime": "2026-10-13T21:52:00.000Z",
+    "FetchedAt": "2026-10-13T21:58:22.384Z"
   },
   {
     "LocationName": "Studio A",
-    "CountOfParticipants": 2,
-    "PercetageCapacity": 6,
-    "IsClosed": false,
+    "CountOfParticipants": 3,
+    "PercetageCapacity": null,
+    "IsClosed": true,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-10-13T17:34:00.000Z",
-    "FetchedAt": "2026-10-13T17:46:05.988Z"
+    "LastUpdatedDateAndTime": "2026-10-13T20:29:00.000Z",
+    "FetchedAt": "2026-10-13T21:58:22.384Z"
   },
   {
     "LocationName": "Studio B",
-    "CountOfParticipants": 3,
-    "PercetageCapacity": 9,
-    "IsClosed": false,
+    "CountOfParticipants": 4,
+    "PercetageCapacity": null,
+    "IsClosed": true,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-10-13T17:34:00.000Z",
-    "FetchedAt": "2026-10-13T17:46:05.988Z"
+    "LastUpdatedDateAndTime": "2026-10-13T21:26:00.000Z",
+    "FetchedAt": "2026-10-13T21:58:22.384Z"
   },
   {
     "LocationName": "2nd Floor",
-    "CountOfParticipants": 26,
-    "PercetageCapacity": 25,
+    "CountOfParticipants": 36,
+    "PercetageCapacity": 34,
     "IsClosed": false,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-10-13T17:34:00.000Z",
-    "FetchedAt": "2026-10-13T17:46:05.988Z"
+    "LastUpdatedDateAndTime": "2026-10-13T21:26:00.000Z",
+    "FetchedAt": "2026-10-13T21:58:22.384Z"
   },
   {
     "LocationName": "Gymnasium",
-    "CountOfParticipants": 9,
-    "PercetageCapacity": 15,
+    "CountOfParticipants": 20,
+    "PercetageCapacity": 33,
     "IsClosed": false,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-10-13T17:34:00.000Z",
-    "FetchedAt": "2026-10-13T17:46:05.988Z"
+    "LastUpdatedDateAndTime": "2026-10-13T21:47:00.000Z",
+    "FetchedAt": "2026-10-13T21:58:22.384Z"
   },
   {
     "LocationName": "3rd Floor Weight Room",
-    "CountOfParticipants": 38,
-    "PercetageCapacity": 58,
+    "CountOfParticipants": 47,
+    "PercetageCapacity": 72,
     "IsClosed": false,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-10-13T17:03:00.000Z",
-    "FetchedAt": "2026-10-13T17:46:05.988Z"
+    "LastUpdatedDateAndTime": "2026-10-13T21:22:00.000Z",
+    "FetchedAt": "2026-10-13T21:58:22.384Z"
   },
   {
     "LocationName": "3rd Floor Select & Cardio",
-    "CountOfParticipants": 36,
-    "PercetageCapacity": 40,
+    "CountOfParticipants": 41,
+    "PercetageCapacity": 46,
     "IsClosed": false,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-10-13T17:03:00.000Z",
-    "FetchedAt": "2026-10-13T17:46:05.988Z"
+    "LastUpdatedDateAndTime": "2026-10-13T21:22:00.000Z",
+    "FetchedAt": "2026-10-13T21:58:22.384Z"
   },
   {
     "LocationName": "1st Floor Weight Room",
-    "CountOfParticipants": 7,
-    "PercetageCapacity": 20,
+    "CountOfParticipants": 27,
+    "PercetageCapacity": 77,
     "IsClosed": false,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-10-13T17:31:00.000Z",
-    "FetchedAt": "2026-10-13T17:46:05.988Z"
+    "LastUpdatedDateAndTime": "2026-10-13T21:29:00.000Z",
+    "FetchedAt": "2026-10-13T21:58:22.384Z"
   }
 ]
