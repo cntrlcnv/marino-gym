@@ -1,73 +1,73 @@
 [
   {
     "LocationName": "SquashBusters - 4th Floor",
-    "CountOfParticipants": 28,
-    "PercetageCapacity": 47,
+    "CountOfParticipants": 26,
+    "PercetageCapacity": 43,
     "IsClosed": false,
     "FacilityId": 999,
     "FacilityName": "SquashBusters",
-    "LastUpdatedDateAndTime": "2026-10-22T20:06:00.000Z",
-    "FetchedAt": "2026-10-22T20:34:47.821Z"
+    "LastUpdatedDateAndTime": "2026-10-22T23:00:00.000Z",
+    "FetchedAt": "2026-10-22T23:31:52.114Z"
   },
   {
     "LocationName": "Studio A",
-    "CountOfParticipants": 12,
-    "PercetageCapacity": 36,
-    "IsClosed": false,
-    "FacilityId": 1068,
-    "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-10-22T20:12:00.000Z",
-    "FetchedAt": "2026-10-22T20:34:47.821Z"
-  },
-  {
-    "LocationName": "Studio B",
-    "CountOfParticipants": 8,
-    "PercetageCapacity": 24,
-    "IsClosed": false,
-    "FacilityId": 1068,
-    "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-10-22T20:12:00.000Z",
-    "FetchedAt": "2026-10-22T20:34:47.821Z"
-  },
-  {
-    "LocationName": "2nd Floor",
-    "CountOfParticipants": 47,
-    "PercetageCapacity": 45,
-    "IsClosed": false,
-    "FacilityId": 1068,
-    "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-10-22T20:12:00.000Z",
-    "FetchedAt": "2026-10-22T20:34:47.821Z"
-  },
-  {
-    "LocationName": "Gymnasium",
-    "CountOfParticipants": 22,
-    "PercetageCapacity": 37,
-    "IsClosed": false,
-    "FacilityId": 1068,
-    "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-10-22T20:12:00.000Z",
-    "FetchedAt": "2026-10-22T20:34:47.821Z"
-  },
-  {
-    "LocationName": "3rd Floor Weight Room",
-    "CountOfParticipants": 36,
+    "CountOfParticipants": 18,
     "PercetageCapacity": 55,
     "IsClosed": false,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-10-22T20:31:00.000Z",
-    "FetchedAt": "2026-10-22T20:34:47.821Z"
+    "LastUpdatedDateAndTime": "2026-10-22T23:21:00.000Z",
+    "FetchedAt": "2026-10-22T23:31:52.114Z"
   },
   {
-    "LocationName": "3rd Floor Select & Cardio",
-    "CountOfParticipants": 44,
-    "PercetageCapacity": 49,
+    "LocationName": "Studio B",
+    "CountOfParticipants": 16,
+    "PercetageCapacity": 48,
     "IsClosed": false,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-10-22T20:31:00.000Z",
-    "FetchedAt": "2026-10-22T20:34:47.821Z"
+    "LastUpdatedDateAndTime": "2026-10-22T23:21:00.000Z",
+    "FetchedAt": "2026-10-22T23:31:52.114Z"
+  },
+  {
+    "LocationName": "2nd Floor",
+    "CountOfParticipants": 60,
+    "PercetageCapacity": 57,
+    "IsClosed": false,
+    "FacilityId": 1068,
+    "FacilityName": "UREC",
+    "LastUpdatedDateAndTime": "2026-10-22T23:21:00.000Z",
+    "FetchedAt": "2026-10-22T23:31:52.114Z"
+  },
+  {
+    "LocationName": "Gymnasium",
+    "CountOfParticipants": 47,
+    "PercetageCapacity": 78,
+    "IsClosed": false,
+    "FacilityId": 1068,
+    "FacilityName": "UREC",
+    "LastUpdatedDateAndTime": "2026-10-22T23:21:00.000Z",
+    "FetchedAt": "2026-10-22T23:31:52.114Z"
+  },
+  {
+    "LocationName": "3rd Floor Weight Room",
+    "CountOfParticipants": 40,
+    "PercetageCapacity": 62,
+    "IsClosed": false,
+    "FacilityId": 1068,
+    "FacilityName": "UREC",
+    "LastUpdatedDateAndTime": "2026-10-22T23:01:00.000Z",
+    "FetchedAt": "2026-10-22T23:31:52.114Z"
+  },
+  {
+    "LocationName": "3rd Floor Select & Cardio",
+    "CountOfParticipants": 58,
+    "PercetageCapacity": 64,
+    "IsClosed": false,
+    "FacilityId": 1068,
+    "FacilityName": "UREC",
+    "LastUpdatedDateAndTime": "2026-10-22T23:02:00.000Z",
+    "FetchedAt": "2026-10-22T23:31:52.114Z"
   },
   {
     "LocationName": "1st Floor Weight Room",
@@ -76,7 +76,7 @@
     "IsClosed": false,
     "FacilityId": 1068,
     "FacilityName": "UREC",
-    "LastUpdatedDateAndTime": "2026-10-22T20:33:00.000Z",
-    "FetchedAt": "2026-10-22T20:34:47.821Z"
+    "LastUpdatedDateAndTime": "2026-10-22T23:04:00.000Z",
+    "FetchedAt": "2026-10-22T23:31:52.114Z"
   }
 ]
